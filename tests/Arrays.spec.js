@@ -3,7 +3,7 @@ const x = require ('chai');
 describe('Arrays',()=>{
     describe('#sort',()=>{
         it('calculator',()=>{
-            x.expect(5-2).to.be.eq(3);
+            x.expect(5-1).to.be.eq(4);
         })
     })
 })
