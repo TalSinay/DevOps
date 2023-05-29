@@ -8,3 +8,8 @@ app.get('/', (req, res) => {
     console.log('new request has arrived');
     res.send("<h1 style='color: blue'>hello from the server main page </h1>");
 });
+
+app.listen(port,()=>
+{
+    console.log("server is up and run is=n port" + port) ;
+})
