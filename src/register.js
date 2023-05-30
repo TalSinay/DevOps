@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -20,15 +21,15 @@ const studentSchema = new mongoose.Schema({
   name: String,
   exam1: Number,
   exam2: Number,
-  exam3: Number
+  exam3: Number,
 });
 
 const Student = mongoose.model('Student', studentSchema);
 
 router.get('/', async (req, res) => {
-    try {
-      const students = await Student.find();
-      res.send(`
+  try {
+    const students = await Student.find();
+    res.send(`
         <h1 style='color: blue'>Register Page</h1>
         <form action="/register" method="POST">
           <label for="name">Name:</label>
@@ -46,12 +47,11 @@ router.get('/', async (req, res) => {
           ${students.map(student => `<li>${student.name} - Exam 1: ${student.exam1}, Exam 2: ${student.exam2}, Exam 3: ${student.exam3}</li>`).join('')}
         </ul>
       `);
-    } catch (err) {
-      console.log(err);
-      res.status(500).send('Error retrieving data.');
-    }
-  });
-  
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Error retrieving data.');
+  }
+});
 
 router.post('/', async (req, res) => {
   const { name, exam1, exam2, exam3 } = req.body;
@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
     name,
     exam1: parseInt(exam1),
     exam2: parseInt(exam2),
-    exam3: parseInt(exam3)
+    exam3: parseInt(exam3),
   });
 
   try {
@@ -72,5 +72,3 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
-
-

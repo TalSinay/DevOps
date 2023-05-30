@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 3000;
 const app = express();
-const registerRouter = require('./register.js');
+const registerRouter = require('./register');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/register', registerRouter);
