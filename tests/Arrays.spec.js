@@ -1,3 +1,5 @@
+/* eslint-disable */
+/* the line above disables eslint check for this file (temporarily) todo:delete */
 const x = require ('chai');
 
 describe('Arrays',()=>{
