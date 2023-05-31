@@ -7,7 +7,8 @@ const mongoose = require('mongoose');
 router.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB connection options with authentication
-const dbURI = 'mongodb+srv://talsinay:tesla730@talsinay.qzozm.mongodb.net/?authMechanism=DEFAULT';
+//const dbURI = 'mongodb+srv://talsinay:tesla730@talsinay.qzozm.mongodb.net/?authMechanism=DEFAULT';
+const dbURI = 'mongodb+srv://talsinay:tesla730@talsinay.qzozm.mongodb.net/?retryWrites=true&w=majority"';
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
